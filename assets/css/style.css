@@ -1,0 +1,160 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+	transition: all ease 0.3s;
+}
+body {
+	padding: 20px;
+}
+.countries {
+	height: unset;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 20px;
+	padding: 20px;
+	background-color: cadetblue;
+}
+.card {
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	background-color: white;
+	border-radius: 10px;
+	overflow: hidden;
+	gap: 20px;
+}
+.card img {
+	width: 100%;
+}
+.btns {
+	margin-top: auto;
+}
+.btn {
+	padding: 5px;
+	border: none;
+	border-radius: 8px;
+	background-color: darkcyan;
+	cursor: pointer;
+	margin: 5px;
+}
+.btn.delete {
+	background-color: red;
+}
+.map-link {
+	opacity: 0;
+}
+.map-link.active {
+	opacity: 1;
+}
+.card.active .map-link {
+	opacity: 1;
+}
+
+@media (max-width: 768px) {
+	.countries {
+		grid-template-columns: 1fr;
+	}
+}
+
+.slider {
+	padding: 50px 20px;
+	background-color: cornflowerblue;
+}
+.wrapper {
+	display: grid;
+	grid-template-columns: 1fr;
+	overflow: hidden;
+	height: 400px;
+	position: relative;
+}
+.slide img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	filter: brightness(0.5);
+}
+.slide.active img {
+	filter: brightness(0.8);
+}
+.slide {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 0;
+	height: 100%;
+	transition: width 0.5s;
+	/* height: 0; */
+	z-index: -1;
+}
+
+.slide.active {
+	width: 100%;
+	z-index: 0;
+}
+.slide div {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(135, 206, 250, 0.7);
+	border-radius: 12px;
+	text-align: center;
+	max-width: 70%;
+	height: 0;
+	width: 0;
+	opacity: 0;
+	color: transparent;
+	transition: all 0.7s;
+}
+.slide.active div {
+	display: block;
+	color: black;
+	width: auto;
+	height: auto;
+	opacity: 1;
+	padding: 20px;
+}
+.slides-wrapper:hover .slide div {
+	background-color: rgba(135, 206, 250, 0.9);
+}
+.slide h3 {
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+
+.slider-btns .btn {
+	position: absolute;
+	top: 50%;
+	cursor: pointer;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 30px;
+	color: white;
+	font-weight: bold;
+	margin: 0;
+	transform: translateY(-50%);
+	border-radius: 50%;
+	aspect-ratio: 1/1;
+	width: 50px;
+	height: 50px;
+	background-color: rgba(0, 139, 138, 0.7);
+}
+.slides-wrapper:hover .slider-btns .btn {
+	background-color: rgba(0, 139, 139, 1);
+}
+.slides-wrapper {
+	position: relative;
+}
+.next {
+	rotate: 45deg;
+	right: 30px;
+}
+.prev {
+	left: 30px;
+	rotate: -45deg;
+}
